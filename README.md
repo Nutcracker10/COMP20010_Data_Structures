@@ -3,7 +3,9 @@
 These are the files I worked on over the course of COMP20010
 
 Singularly Linked Lists
+
 Doubly Linked Lists
+
 Stacks
 
 ------------
