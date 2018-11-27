@@ -57,4 +57,47 @@ public class ArrayStack<E> implements Stack<E>
 		return answer;
 	}
 	
+	@Override
+	public String toString()
+	{
+		String outputs = new String();
+		int i=0;
+		
+		while (data[i] != null)
+		{
+			if(i%10 == 0)
+				outputs += "\n" + data[i] + " ";
+			else
+				outputs += data[i] + " ";
+			i++;
+		}
+		return outputs;
+	}
+	
+	public static void main(String[] args)
+	{
+		ArrayStack<Object> stack = new ArrayStack<>();
+		//Print data before entries
+		System.out.println("The stack size is " + stack.size());
+		//add some generic data
+		String[] family = {"Gerry", "James", "Joan", "Beth", "Mandy", "Trip", "Ruth", "Jean", "Brian", "Paula", "Rory"};
+		for(int i=0; i<family.length; i++)
+		{
+		  stack.push(family[i]);
+		}
+		//Demonstrate top is working
+		System.out.println(stack.top());
+		//Demonstrates toString method + new stack size
+		System.out.println("\nThe stack size is " + stack.size());
+		System.out.println(stack + "\n");
+		
+		//Demonstrate pop function
+		for(int i=0; i<5; i++)
+		{
+			stack.pop();
+		}
+		System.out.println(stack);
+		
+	}
+	
 }
