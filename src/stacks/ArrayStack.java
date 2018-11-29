@@ -1,3 +1,6 @@
+package stacks;
+
+import java.util.Arrays;
 
 public class ArrayStack<E> implements Stack<E>
 {
@@ -76,7 +79,9 @@ public class ArrayStack<E> implements Stack<E>
 	
 	public static void main(String[] args)
 	{
-		ArrayStack<Object> stack = new ArrayStack<>();
+		ArrayStack<String> stack = new ArrayStack<>();
+		//a string for testing pop function
+		String[] temp = new String[5];
 		//Print data before entries
 		System.out.println("The stack size is " + stack.size());
 		//add some generic data
@@ -94,9 +99,14 @@ public class ArrayStack<E> implements Stack<E>
 		//Demonstrate pop function
 		for(int i=0; i<5; i++)
 		{
-			stack.pop();
+			temp[i] = stack.pop();
 		}
 		System.out.println(stack);
+		System.out.print(Arrays.toString(temp) + "\n");
+		//demonstrate push is working
+		stack.push("Laura");
+		System.out.println("The stack size is " + stack.size());
+		System.out.println(stack + "\n");
 		
 	}
 	

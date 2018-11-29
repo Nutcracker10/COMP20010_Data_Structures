@@ -1,3 +1,4 @@
+package stacks;
 
 public interface Stack<E>
 {

@@ -91,5 +91,66 @@ public class CircularlyLinkedList<E>
 		
 		size--;
 		return head.getElement();
+	}//end of removeFirst
+	
+	public void remove(E key) //removes node at key
+	{
+		Node<E> tmp = tail;
+		
+		if(tmp.getElement() == key)//checks if tail is the node to remove
+		{
+			tail = tail.next;
+			return;
+		}
+		
+		while(tmp.getNext() != null)//iterates through loop 
+		{
+			tmp = tmp.getNext();
+			
+			if(tmp.getElement() == key)//finds and removes key node
+			{
+				tmp = tmp.next;
+				return;
+			}
+		}
+		size--;
+	}//end of remove
+	
+	public void insertBefore(E key, E content) // adds element into the list before the key
+	{
+		Node<E> tmp = tail;
+		Node<E> tmpnext = tmp.getNext();//tmpnext is always one link ahead of tmp in the list
+		while(tmp.getNext() != null)
+		{
+			tmp = tmp.getNext();
+			tmpnext = tmp.getNext();
+			
+			if(tmpnext.getElement() == key)//if tmpnext is equal to the key, break the loop and create the node
+				break;
+		}
+		Node<E> newcontent = new Node<E>(content, tmp);
+		tmp.setNext(newcontent);//sets new node
+		size++;
+	}//end of insertBefore
+	
+	 public String toString() 
+	  {
+		  String output = new String();
+		  Node<E> tmp = tail;
+		  
+		  while (tmp != null)
+		  {
+			  output += "[" + tmp.getElement() + "]\n";
+			  tmp = tmp.getNext();
+		  }
+		  return output;
+	  }//end of toString
+	 
+	 public static void main(String[] args)
+	{
+		CircularlyLinkedList CList = new CircularlyLinkedList<>();
+		
 	}
+	
+	
 }
